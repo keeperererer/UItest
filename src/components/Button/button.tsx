@@ -22,11 +22,14 @@ interface BaseButtonProps {
   children: React.ReactNode
 }
 
+// 获取button原有的所有属性 跟 自定义的属性
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+// 获取a标签原有的所有属性 跟 自定义的属性 
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
+// partial 变成可选的
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: FC<ButtonProps> = (props) => {
   const {
     disabled,
     className,
