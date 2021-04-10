@@ -1,17 +1,9 @@
 import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
 import classNames from 'classnames'
 
-export enum ButtonSize {
-  Large = 'lg',
-  Small = 'sm',
-}
+export type ButtonSize = 'lg' | 'sm'
 
-export enum ButtonType {
-  Primary = 'primary',
-  Default = 'default',
-  Danger = 'danger',
-  Link = 'link',
-}
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseButtonProps {
   className?: string
@@ -24,7 +16,7 @@ interface BaseButtonProps {
 
 // 获取button原有的所有属性 跟 自定义的属性
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
-// 获取a标签原有的所有属性 跟 自定义的属性 
+// 获取a标签原有的所有属性 跟 自定义的属性
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 // partial 变成可选的
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
@@ -42,9 +34,9 @@ const Button: FC<ButtonProps> = (props) => {
   const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    disabled: btnType === ButtonType.Link && disabled,
+    disabled: btnType === 'link' && disabled,
   })
-  if (btnType === ButtonType.Link && href) {
+  if (btnType === 'link' && href) {
     return (
       <a className={classes} href={href} {...restProps}>
         {children}
@@ -61,7 +53,7 @@ const Button: FC<ButtonProps> = (props) => {
 
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default,
+  btnType: 'default',
 }
 
 export default Button
