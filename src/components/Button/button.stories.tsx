@@ -13,8 +13,8 @@ export default {
 
 const Template: Story<BaseButtonProps> = (args) => <Button {...args} />
 
-export const defaultButton = Template.bind({})
-defaultButton.args = {
+export const button = Template.bind({})
+button.args = {
   children: 'default button',
   btnType: 'primary',
 }

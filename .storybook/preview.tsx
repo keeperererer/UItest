@@ -1,10 +1,7 @@
-import React from 'react'
-import {addDecorator} from '@storybook/react'
 import '../src/styles/index.scss'
-const styles: React.CSSProperties = {
-  textAlign: 'center',
-}
-const CenterDecorator = (storyFn: any) => <div style={styles}>{storyFn()}</div>
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -14,4 +11,3 @@ export const parameters = {
     },
   },
 }
-addDecorator(CenterDecorator)

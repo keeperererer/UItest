@@ -25,7 +25,10 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 // partial 变成可选的
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 /**
- * 这是我们的第一个按钮组件
+ * 页面中最常用的的按钮元素，适合于完成特定的交互
+ * ```
+ * import { Button } from 'vikingship'
+ * ```
  */
 export const Button: FC<ButtonProps> = (props) => {
   const {
