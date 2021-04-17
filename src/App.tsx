@@ -7,9 +7,42 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Icon from './components/Icon/icon'
 import Transition from './components/Transition/transition'
+import AutoComplete from './components/AutoComplete/index'
 library.add(fas)
 function App() {
   const [show, setShow] = useState(false)
+  const lakers = [
+    'bradley',
+    'pope',
+    'caruso',
+    'cook',
+    'cousins',
+    'james',
+    'AD',
+    'green',
+    'howard',
+    'kuzma',
+    'McGee',
+    'rando',
+  ]
+  const lakersWithNumber = [
+    { value: 'bradley', number: 11 },
+    { value: 'pope', number: 1 },
+    { value: 'caruso', number: 4 },
+    { value: 'cook', number: 2 },
+    { value: 'cousins', number: 15 },
+    { value: 'james', number: 23 },
+    { value: 'AD', number: 3 },
+    { value: 'green', number: 14 },
+    { value: 'howard', number: 39 },
+    { value: 'kuzma', number: 0 },
+  ]
+  // const handleFetch = (query: string) => {
+  //   return lakers.filter(name => name.includes(query)).map(name => ({value: name}))
+  // }
+  const handleFetch = (query: string) => {
+    return lakersWithNumber.filter((player) => player.value.includes(query))
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -40,6 +73,11 @@ function App() {
         <Transition in={show} timeout={300} animation="zoom-in-top">
           <p>jjjj</p>
         </Transition>
+
+        <AutoComplete
+          fetchSuggestions={handleFetch}
+          //renderOption={renderOption}
+        />
 
         {/* <Button autoFocus>hello world</Button>
         <Button disabled>hello world</Button>
