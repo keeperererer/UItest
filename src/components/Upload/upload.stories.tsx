@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import Upload, { UploadProps } from './upload'
 export default {
-  title: 'Upload组件',
+  title: 'upload组件',
   component: Upload,
   argTypes: {
     backgroundColor: { control: 'color' },

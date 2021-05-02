@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import AutoComplete from './index'
 import { AutoCompleteProps } from './autoComplete'
 export default {
-  title: 'AutoComplete组件',
+  title: 'autoComplete组件',
   component: AutoComplete,
   argTypes: {
     backgroundColor: { control: 'color' },
