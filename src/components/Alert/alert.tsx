@@ -5,13 +5,34 @@ import Transition from '../Transition/transition'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 export type AlertType = 'primary' | 'danger' | 'success' | 'warning'
 export interface BaseAlertProps {
+  /**
+   * title
+   */
   title?: string
+  /**
+   * 是否可关闭
+   */
   closable?: boolean
+  /**
+   * 自定义关闭文字
+   */
   customClose?: string
   onClose?: () => void
+  /**
+   * description
+   */
   children?: React.ReactChild
+  /**
+   * type
+   */
   type: AlertType
+  /**
+   * title前的Icon
+   */
   tipIcon?: IconProp
+  /**
+   * icon的样式
+   */
   tipTheme?: ThemeProps
 }
 

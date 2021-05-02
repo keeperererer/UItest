@@ -23,6 +23,14 @@ export interface InputProps
   /**添加后缀 用于配置一些固定组合 */
   append?: string | ReactElement
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  /**
+   * icon was clicked
+   */
+  onIconClick?: () => void
+  /**
+   * the child content
+   */
+  children?: Array<ReactElement> | ReactElement
 }
 
 /**
@@ -33,7 +41,16 @@ export interface InputProps
  */
 export const Input: FC<InputProps> = (props) => {
   // 取出各种的属性
-  const { disabled, size, icon, prepend, append, style, ...restProps } = props
+  const {
+    disabled,
+    size,
+    icon,
+    prepend,
+    append,
+    style,
+    children,
+    ...restProps
+  } = props
 
   // 根据属性计算不同的className
   const cnames = classNames('viking-input-wrapper', {
@@ -68,6 +85,7 @@ export const Input: FC<InputProps> = (props) => {
         disabled={disabled}
         {...restProps}
       />
+      {children}
       {append && <div className="viking-input-group-append">{append}</div>}
     </div>
   )
